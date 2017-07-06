@@ -1,0 +1,37 @@
+.App {
+  text-align: center;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.App-body {
+  padding: 50px;
+}
+
+.App-intro {
+  font-size: 18px;
+  margin: 0 auto;
+}
+
+.App-coins {
+  margin: 20px auto;
+  width: 300px;
+  display: block;
+  /*background: whitesmoke;*/
+  /*border-radius: 30px;*/
+}
+
+.App-coin {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  margin: 20px;
+  border-radius: 50px;
+  border: 3px dotted black;
+  background: white;
+}
+
+.App-coin i {
+  margin: 10px;
+  font-size: 28px;
+}
+

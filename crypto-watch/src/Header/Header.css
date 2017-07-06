@@ -1,0 +1,10 @@
+.CW-header {
+    background: url("header.jpg");
+    height: 150px;
+    padding: 20px;
+    color: white;
+}
+
+.CW-logo {
+    height: 80px;
+}
