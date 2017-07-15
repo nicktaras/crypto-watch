@@ -1,0 +1,39 @@
+.CryptoCurrency {
+    margin: 22px 12px;
+    width: 410px;
+    border: 1px solid #bb9d93;
+    border-radius: 1px;
+    background: white;
+}
+
+.CryptoCurrency p {
+    padding: 0 10px;
+    text-align: left;
+}
+
+.CryptoCurrency .title {
+    height: 32px;
+    margin: 0;
+    background: #d6e6c9;
+    padding: 12px 12px 0px 12px;
+    border-bottom: 1px solid #bb9d93;
+}
+
+.CryptoCurrency .title span {
+
+}
+
+.CryptoCurrency .title span:first-child {
+    float: left;
+}
+
+.CryptoCurrency .title span:last-child {
+    float: right;
+}
+
+/*
+
+Green: #d6e6c9
+Red: #e6c9c9
+
+*/

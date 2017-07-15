@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from './../Header/Header.js';
+import { Route, Link } from "react-router-dom";
 import './../App.css';
 
 class Home extends Component {
@@ -11,7 +12,7 @@ class Home extends Component {
           <div className="App-intro">
             <p>This is an experimental application created to provide the status and statistics of your crypto currencies.</p>
           </div>
-          <a type="button" href="main" className="App-anchor">Get Started</a>
+          <Link className="App-link" to="/currencies/main">Get Started</Link>
           <div className="App-coins">
             <div className="App-coin">
               <i className="cf cf-btc"></i>

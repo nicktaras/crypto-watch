@@ -1,0 +1,26 @@
+.Main-add {
+    margin: 20px auto 0 auto;
+    width: 300px;
+    height: 50px;
+    border: 1px solid #bb9d93;
+    border-radius: 1px;
+    background: white;
+    cursor: pointer;
+}
+
+.Main-add span {
+    color: #775a51;
+}
+
+.Main-add span:first-child {
+    float: left;
+}
+
+.Main-add span:last-child {
+    float: right;
+}
+
+.Main-crypto-container {
+    display: flex;
+    justify-content: center;
+}

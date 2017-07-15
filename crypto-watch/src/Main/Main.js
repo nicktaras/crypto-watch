@@ -1,25 +1,28 @@
 import React, { Component } from 'react';
+import CryptoCurrency from '../CryptoCurrency/CryptoCurrency.js';
 import { Route, Link } from "react-router-dom";
-import Header from './../Header/Header.js';
-import Sell from './../Sell/Sell.js';
-import Buy from './../Buy/Buy.js';
+import './Main.css';
 
 class Main extends Component {
   render() {
     return (
       <div>
-        <Header/>
+
         <div className="App-nav">
-          <Link className="App-link" to="/main/buy">Buy</Link>
-          <Link className="App-link" to="/main/sell">Sell</Link>
+          <Link className="App-link" to="/currencies/Add">Add +</Link>
         </div>
-        <div>
-          <Route exact path="/main/buy" component={Buy} />
-          <Route exact path="/main/sell" component={Sell} />
+
+        <div className="Main-crypto-container">
+
+          <CryptoCurrency></CryptoCurrency>
+          <CryptoCurrency></CryptoCurrency>
+
         </div>
+
       </div>
     );
   }
 }
 
 export default Main;
+

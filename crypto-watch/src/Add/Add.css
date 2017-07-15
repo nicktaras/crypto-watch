@@ -1,0 +1,42 @@
+.Add {
+    margin: 22px auto;
+    width: 310px;
+    padding: 20px;
+    border: 1px solid #bb9d93;
+    border-radius: 1px;
+    background: white;
+    text-align: left;
+}
+
+.Add .title {
+    height: 32px;
+    margin: 0;
+    padding: 12px 12px 0px 12px;
+    border-bottom: 1px solid #bb9d93;
+}
+
+input {
+    height: 24px;
+    padding: 10px;
+    border: 2px solid #e6d8c9;
+    width: 180px;
+    font-size: 18px;
+}
+
+i {
+    font-size: 28px;
+    padding: 5px;
+    color: #b5b5b5;
+}
+
+.Add .title span {
+
+}
+
+.Add .title span:first-child {
+    float: left;
+}
+
+.Add .title span:last-child {
+    float: right;
+}
