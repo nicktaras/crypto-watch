@@ -4,11 +4,16 @@
   "private": true,
   "dependencies": {
     "cryptofont": "^0.1.1",
+    "param-store": "^1.2.0",
     "react": "^15.6.1",
     "react-currency-input": "^1.3.2",
     "react-dom": "^15.6.1",
+    "react-redux": "^5.0.5",
     "react-router": "^4.1.1",
-    "react-scripts": "1.0.10"
+    "react-scripts": "1.0.10",
+    "react-super-components": "^0.3.5",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.1.0"
   },
   "scripts": {
     "start": "react-scripts start",

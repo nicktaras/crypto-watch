@@ -1,0 +1,20 @@
+.Home-coins {
+    margin: 20px auto;
+    display: block;
+}
+
+.Home-coin {
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    margin: 20px;
+    border-radius: 50px;
+    border: 3px dotted black;
+    background: white;
+}
+
+.Home-coin i {
+    color: black;
+    margin: 8px;
+    font-size: 21px;
+}

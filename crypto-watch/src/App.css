@@ -58,33 +58,14 @@
   transition: 0.3s;
 }
 
+.App-button:disabled {
+  opacity: .5;
+}
+
 .App-button:hover {
   /*background: #977e77;*/
   background: #7f86b2;
   /*background: #6c77b6;*/
-}
-
-.App-coins {
-  margin: 20px auto;
-  width: 300px;
-  display: block;
-  /*background: whitesmoke;*/
-  /*border-radius: 30px;*/
-}
-
-.App-coin {
-  display: inline-block;
-  height: 50px;
-  width: 50px;
-  margin: 20px;
-  border-radius: 50px;
-  border: 3px dotted black;
-  background: white;
-}
-
-.App-coin i {
-  margin: 10px;
-  font-size: 28px;
 }
 
 /* http://meyerweb.com/eric/tools/css/reset/
