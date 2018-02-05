@@ -1,8 +1,8 @@
-import { FETCH_WEATHER } from '../actions/index';
+import { FETCH_COINS } from '../actions/index';
 
 export default function (state = [], action) {
   switch (action.type) {
-    case FETCH_WEATHER:
+    case FETCH_COINS:
       // never mutate state.
       // these two mehtods will take the place of the existing state
       // but not mutate the current.
