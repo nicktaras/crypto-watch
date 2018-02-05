@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Route, Link } from "react-router-dom";
-import './Add.css';
+import './edit.css';
 
-class Add extends Component {
+class Edit extends Component {
   constructor(){
     super();
 
@@ -41,15 +41,15 @@ class Add extends Component {
   }
   render() {
     return (
-      <div className="Add-cryptocurrency">
+      <div className="edit-cryptocurrency">
 
         <div className="App-nav">
-          <Link className="App-link" to="/currencies/Main">Back</Link>
+          <Link className="edit-link" to="/currencies/Main">Back</Link>
         </div>
 
-        <form className="Add">
+        <form className="edit">
 
-          <p className="title">Add Crypto Currency:</p>
+          <p className="title">Edit Crypto Currency:</p>
 
           <p>Please Select the Currency type</p>
 
@@ -72,7 +72,7 @@ class Add extends Component {
           <input type="number" onChange={this.handleInputChange} data-key="coins" value={this.state.item.coins} />
 
           <div>
-            <button className="App-button" disabled={this.disabled}>Add</button>
+            <button className="App-button" disabled={this.disabled}>Edit</button>
           </div>
 
         </form>
@@ -82,5 +82,4 @@ class Add extends Component {
   }
 }
 
-export default Add;
-
+export default Edit;

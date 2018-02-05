@@ -1,7 +1,7 @@
 import React from 'react'
-import Home from './Home/Home.js';
-import Currencies from './Currencies/Currencies.js';
-import { BrowserRouter as Router, Route } from 'react-router-dom'; // Switch
+import Home from './../containers/home/home.js';
+import Currencies from './../containers/currencies/currencies.js';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 const App = () => (
   <Router>
@@ -13,4 +13,3 @@ const App = () => (
 );
 
 export default App
-

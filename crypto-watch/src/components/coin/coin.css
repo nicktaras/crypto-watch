@@ -1,5 +1,5 @@
 .CryptoCurrency {
-    margin: 22px 12px;
+    margin: 22px 12px 0 12px;
     width: 410px;
     border: 1px solid #bb9d93;
     border-radius: 1px;
@@ -29,6 +29,12 @@
 
 .CryptoCurrency .title span:last-child {
     float: right;
+}
+
+.icon {
+  cursor: pointer;
+  padding: 0 0 0 5px;
+  color: #000;
 }
 
 /*

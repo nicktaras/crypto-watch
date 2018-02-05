@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import Header from './../Header/Header.js';
-import './home.css';
+import Header from './../../components/header/header.js';
 import { Route, Link } from "react-router-dom";
-import './../App.css';
+
+import './home.css';
+import './../../app/app.css';
 
 class Home extends Component {
   constructor(){
@@ -18,14 +19,14 @@ class Home extends Component {
     return (
       <div>
         <Header/>
-        <div className="App-body">
-          <div className="App-intro">
+        <div className="home-body">
+          <div className="home-intro">
             <p>This is an experimental application created to provide the status and statistics of your crypto currencies.</p>
           </div>
-          <Link className="App-link" to="/currencies/main">Get Started</Link>
-          <div className="Home-coins">
+          <Link className="home-link" to="/currencies/main">Get Started</Link>
+          <div className="home-coins">
             {this.supportedCoins.map(supportedCoin =>
-              <div className="Home-coin" key={supportedCoin.id}>
+              <div className="home-coin" key={supportedCoin.id}>
                 <i className={'cf ' + supportedCoin.icon.toString()}></i>
               </div>
             )}
@@ -40,4 +41,3 @@ class Home extends Component {
 };
 
 export default Home;
-

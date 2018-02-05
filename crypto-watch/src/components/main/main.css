@@ -1,0 +1,43 @@
+.main-add {
+    margin: 20px auto 0 auto;
+    width: 300px;
+    height: 50px;
+    border: 1px solid #bb9d93;
+    border-radius: 1px;
+    background: white;
+    cursor: pointer;
+}
+
+.main-link {
+  margin: 20px 5px;
+  display: inline-block;
+  color: white;
+  background: #7f86b2;
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 3px;
+  margin-top: 20px;
+  width: 54px;
+  font-size: 11px;
+  cursor: pointer;
+  -webkit-transition: width 0.4s; /* For Safari 3.1 to 6.0 */
+  transition: 0.3s;
+}
+
+.main-add span {
+    color: #775a51;
+}
+
+.main-add span:first-child {
+    float: left;
+}
+
+.main-add span:last-child {
+    float: right;
+}
+
+.main-crypto-container {
+    display: flex;
+    justify-content: center;
+	  flex-wrap: wrap;
+}

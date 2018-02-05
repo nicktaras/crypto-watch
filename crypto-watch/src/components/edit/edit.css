@@ -1,0 +1,54 @@
+.edit {
+    margin: 22px auto;
+    width: 310px;
+    padding: 20px;
+    border: 1px solid #bb9d93;
+    border-radius: 1px;
+    background: white;
+    text-align: left;
+}
+
+.edit-link {
+  margin: 20px 5px;
+  display: inline-block;
+  color: white;
+  background: #7f86b2;
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 3px;
+  margin-top: 20px;
+  width: 54px;
+  font-size: 11px;
+  cursor: pointer;
+  -webkit-transition: width 0.4s; /* For Safari 3.1 to 6.0 */
+  transition: 0.3s;
+}
+
+.edit .title {
+    height: 32px;
+    margin: 0;
+    padding: 12px 12px 0px 12px;
+    border-bottom: 1px solid #bb9d93;
+}
+
+input {
+    height: 24px;
+    padding: 10px;
+    border: 2px solid #e6d8c9;
+    width: 180px;
+    font-size: 18px;
+}
+
+i {
+    font-size: 28px;
+    padding: 5px;
+    color: #b5b5b5;
+}
+
+.edit .title span:first-child {
+    float: left;
+}
+
+.edit .title span:last-child {
+    float: right;
+}

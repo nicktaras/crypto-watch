@@ -1,4 +1,4 @@
-.Add {
+.add {
     margin: 22px auto;
     width: 310px;
     padding: 20px;
@@ -8,7 +8,23 @@
     text-align: left;
 }
 
-.Add .title {
+.add-link {
+  margin: 20px 5px;
+  display: inline-block;
+  color: white;
+  background: #7f86b2;
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 3px;
+  margin-top: 20px;
+  width: 54px;
+  font-size: 11px;
+  cursor: pointer;
+  -webkit-transition: width 0.4s; /* For Safari 3.1 to 6.0 */
+  transition: 0.3s;
+}
+
+.add .title {
     height: 32px;
     margin: 0;
     padding: 12px 12px 0px 12px;
@@ -29,14 +45,14 @@ i {
     color: #b5b5b5;
 }
 
-.Add .title span {
+.add .title span {
 
 }
 
-.Add .title span:first-child {
+.add .title span:first-child {
     float: left;
 }
 
-.Add .title span:last-child {
+.add .title span:last-child {
     float: right;
 }
