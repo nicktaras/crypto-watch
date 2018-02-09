@@ -1,13 +1,15 @@
-import { FETCH_COINS } from '../actions/index';
+import { FETCH_COINS } from './../actions/index';
+import { ADD_COIN } from './../actions/index';
+import { GET_COIN_PRICE } from './../actions/index';
 
 export default function (state = [], action) {
+
   switch (action.type) {
+    case ADD_COIN:
     case FETCH_COINS:
-      // never mutate state.
-      // these two mehtods will take the place of the existing state
-      // but not mutate the current.
-      // return state.concat([action.payload.data]);
-      return [ action.payload.data, ...state ]; // es6 way
+    case GET_COIN_PRICE:
+      return action.payload;
   }
+
   return state;
 }

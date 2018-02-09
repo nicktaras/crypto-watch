@@ -3,13 +3,13 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createStore, applyMiddleware } from 'redux';
 import registerServiceWorker from './registerServiceWorker';
 
 import './index.css';
 import App from './app/app';
 
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
 import ReduxPromise from 'redux-promise';
 import reducers from './reducers';
 

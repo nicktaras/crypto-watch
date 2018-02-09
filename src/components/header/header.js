@@ -8,7 +8,7 @@ class Header extends Component {
     return (
       <div className="CW-header">
         <img src={logo} className="CW-logo" alt="logo" />
-        <h2>Crypto-Watcher</h2>
+        <h2>Crypto-Watch</h2>
       </div>
     );
   }

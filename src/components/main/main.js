@@ -1,37 +1,42 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { fetchCoins } from './../../actions/index';
+
 import Coin from './../../components/coin/coin.js';
 import { Route, Link } from "react-router-dom";
 import './main.css';
-import { fetchCoins } from './../../actions/index.js';
 
 class Main extends Component {
   constructor(props){
     super(props);
-    var coinsFeed = this.props.fetchCoins();
+    let coinsFeed = this.props.fetchCoins();
     this.state = {
       coins: coinsFeed.payload
     }
   }
   render() {
-    const coins = this.state.coins;
+    if(!this.state.coins){
+      return <div>Loading...</div>;
+    }
     return (
       <div>
         <div className="App-nav">
           <Link className="main-link" to="/currencies/Add">Add +</Link>
         </div>
-        <div className="main-crypto-container">
-          {coins.map(function(coin, index){
+        <div className="main-container">
+          {this.state.coins.map(function(coin, index){
             return <Coin
                       key={ index }
-                      coin={ coins[index].coin }
-                      acr={ coins[index].acr }
-                      price={ coins[index].price }
-                      invested={ coins[index].invested }
-                      coins={ coins[index].coins }
-                      statusAsPercentage={ coins[index].statusAsPercentage }
-                      total={ coins[index].total }
+                      id={ coin.id }
+                      name={ coin.name }
+                      acr={ coin.acr }
+                      price={ coin.price }
+                      invested={ coin.invested }
+                      coinsOwned={ coin.coinsOwned }
+                      amountRecieved={ coin.amountRecieved }
+                      statusAsPercentage={ coin.statusAsPercentage }
+                      totalUSD={ coin.totalUSD }
                   />
           })}
         </div>
@@ -40,13 +45,14 @@ class Main extends Component {
   }
 }
 
-// function mapStateToProps({ coins }) {
-//   return { coins };
-// }
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchCoins }, dispatch);
+function mapStateToProps(state) {
+  return {
+    coins: state.coins
+  };
 }
 
-// null allows us to not pass state if not required.
-export default connect(null, mapDispatchToProps)(Main);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({fetchCoins: fetchCoins}, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

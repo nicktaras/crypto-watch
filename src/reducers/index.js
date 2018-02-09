@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import CoinsReducer from './reducer_coins.js';
 
 const rootReducer = combineReducers({
-  weather: CoinsReducer
+  coins: CoinsReducer
 });
 
 export default rootReducer;
