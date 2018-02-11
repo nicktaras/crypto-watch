@@ -27,8 +27,11 @@
 .edit .title {
     height: 32px;
     margin: 0;
-    padding: 12px 12px 0px 12px;
     border-bottom: 1px solid #bb9d93;
+}
+
+.title i {
+  float: right;
 }
 
 input {

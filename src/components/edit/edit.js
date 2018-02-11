@@ -15,8 +15,8 @@ class Edit extends Component {
     // Move to reducer object to load from Redux.
     this.supportedCoins = [
       { id: 0, acr: 'BTC', icon: 'cf-btc', name: 'Bitcoin', label: 'Bitcoin (BTC)' },
-      { id: 1, acr: 'ETH', icon: 'cf-eth', name: 'Etherium', label: 'Litecoin (LTC)' },
-      { id: 2, acr: 'LTC', icon: 'cf-ltc', name: 'Litecoin', label: 'Etherium (ETH)' },
+      { id: 1, acr: 'ETH', icon: 'cf-eth', name: 'Etherium', label: 'Etherium (ETH)' },
+      { id: 2, acr: 'LTC', icon: 'cf-ltc', name: 'Litecoin', label: 'Litecoin (LTC)' },
       { id: 3, acr: 'XRP', icon: 'cf-xrp', name: 'Ripple', label: 'Ripple (XRP)' }
     ];
     this.state = {
@@ -24,7 +24,7 @@ class Edit extends Component {
         id: this.props.location.state.coinData.id,
         invested: this.props.location.state.coinData.invested[0],
         amountRecieved: this.props.location.state.coinData.amountRecieved[0]
-      }
+      },
     };
     this.disabled = true;
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -35,6 +35,7 @@ class Edit extends Component {
     return !(this.state.coin.id != undefined && this.state.coin.invested && this.state.coin.amountRecieved);
   };
   handleInputChange(evt){
+    debugger
     const _coin = this.state.coin;
     _coin[evt.currentTarget.dataset.key] = evt.currentTarget.value;
     this.setState({_coin});
@@ -53,15 +54,10 @@ class Edit extends Component {
 
         <div className="edit">
           <form>
-            <p className="title">Edit Crypto Currency:</p>
-            <p>Please Select the Currency type</p>
-            <select onChange={this.handleInputChange} data-key="id">
-              {this.supportedCoins.map(supportedCoin =>
-                <option value={supportedCoin.id} key={supportedCoin.id}>
-                  {supportedCoin.label}
-                </option>
-              )}
-            </select>
+            <p className="title">
+              Edit {this.supportedCoins[this.state.coin.id].label}:
+              <i className="icon fa fa-trash" aria-hidden="true"></i>
+            </p>
             <p>Amount invested (USD)</p>
             <input
               name="invested"
@@ -85,6 +81,16 @@ class Edit extends Component {
     );
   }
 }
+
+//
+// <p>Please Select the Currency type</p>
+// <select value={this.state.coin.id || 0} onChange={this.handleInputChange} data-key="id">
+//   {this.supportedCoins.map(supportedCoin =>
+//     <option value={supportedCoin.id} key={supportedCoin.id}>
+//       {supportedCoin.label}
+//     </option>
+//   )}
+// </select>
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({editCoin: editCoin}, dispatch);
