@@ -1,40 +1,10 @@
 import axios from 'axios';
+import coins from './../stubs/user_coins';
+import supportedCoins from './../stubs/supported_coins';
 
 export const FETCH_COINS = 'FETCH_COINS';
 export const ADD_COIN = 'ADD_COIN';
 export const GET_COIN_PRICE = 'GET_COIN_PRICE';
-
-var coins = [
-  {
-    id: 2,
-    name: 'Litecoin',
-    acr: 'LTC',
-    price: 100.00,
-    invested: [200],
-    amountRecieved: [10],
-    coinsOwned: 10.4,
-    statusAsPercentage: 42,
-    totalUSD: 1
-  },
-  {
-    id: 1,
-    name: 'Ethereum',
-    acr: 'ETH',
-    price: 100.00,
-    invested: [200],
-    amountRecieved: [10],
-    coinsOwned: 10.4,
-    statusAsPercentage: 42,
-    totalUSD: 1
-  }
-];
-
-const supportedCoins = [
-  { id: 0, acr: 'BTC', icon: 'cf-btc', name: 'Bitcoin', label: 'Bitcoin (BTC)' },
-  { id: 1, acr: 'ETH', icon: 'cf-eth', name: 'Etherium', label: 'Etherium (ETH)' },
-  { id: 2, acr: 'LTC', icon: 'cf-ltc', name: 'Litecoin', label: 'Litecoin (LTC)' },
-  { id: 3, acr: 'XRP', icon: 'cf-xrp', name: 'Ripple', label: 'Ripple (XRP)' }
-];
 
 // function updateCoinPricing (coin) {
   // $.get("https://v2.ethereumprice.org:8080/snapshot/xrp/usd/waex/24h?_=1516101017976", function(data) {
@@ -108,5 +78,5 @@ export function addCoin(coin) {
 }
 
 export function editCoin(coin) {
-  debugger;
+  alert('edit is under construction');
 }

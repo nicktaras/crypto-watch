@@ -6,19 +6,14 @@ import { connect } from 'react-redux'; // glue between redux and react
 import { editCoin } from './../../actions/index';
 import { bindActionCreators } from 'redux';
 
+import supportedCoins from './../../stubs/supported_coins';
+
 // TODO's
 // - The form has a bug where the page refreshes when actions are dispatched, even when e.preventDefault is applied.
 
 class Edit extends Component {
   constructor(props){
     super(props);
-    // Move to reducer object to load from Redux.
-    this.supportedCoins = [
-      { id: 0, acr: 'BTC', icon: 'cf-btc', name: 'Bitcoin', label: 'Bitcoin (BTC)' },
-      { id: 1, acr: 'ETH', icon: 'cf-eth', name: 'Etherium', label: 'Etherium (ETH)' },
-      { id: 2, acr: 'LTC', icon: 'cf-ltc', name: 'Litecoin', label: 'Litecoin (LTC)' },
-      { id: 3, acr: 'XRP', icon: 'cf-xrp', name: 'Ripple', label: 'Ripple (XRP)' }
-    ];
     this.state = {
       coin: {
         id: this.props.location.state.coinData.id,
@@ -55,7 +50,7 @@ class Edit extends Component {
         <div className="edit">
           <form>
             <p className="title">
-              Edit {this.supportedCoins[this.state.coin.id].label}:
+              Edit {supportedCoins[this.state.coin.id].label}:
               <i className="icon fa fa-trash" aria-hidden="true"></i>
             </p>
             <p>Amount invested (USD)</p>
