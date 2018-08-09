@@ -1,6 +1,7 @@
 import axios from 'axios';
-import coins from './../stubs/user_coins';
-import supportedCoins from './../stubs/supported_coins';
+import coins from '../mocks/userCoins';
+import supportedCoins from '../mocks/supportedCoins';
+import getInvestedAmount from './../helpers/getTotalInvestedValueHelper';
 
 export const FETCH_COINS = 'FETCH_COINS';
 export const ADD_COIN = 'ADD_COIN';
@@ -32,22 +33,28 @@ export function getCoinValue(coins) {
 // fetch all coins and update the values.
 export function fetchCoins() {
 
-  // get coins
-  // then update values
-  let promiseArray = [];
+  // getInvestedAmount([{ unitPriceUSD: 100, purchase: 10, purchaseCurrency: 'USD', amountRecieved: 0.1 },
+  // { unitPriceUSD: 50, purchase: 10, purchaseCurrency: 'USD', amountRecieved: 0.5 },
+  // { unitPriceUSD: 100, purchase: 200, purchaseCurrency: 'USD', amountRecieved: 2 }])
 
-  for(var i = 0; i < coins.length; i++){
-    let url = 'https://v2.ethereumprice.org:8080/snapshot/'+ coins[i].acr.toLowerCase() +'/usd/waex/24h';
-    promiseArray.push(url);
-  }
+  // ASYNC: USE REDUX EPIC
+  // let promiseArray = [];
 
-  axios.all(promiseArray.map(l => axios.get(l)))
-  .then(axios.spread(function (...res) {
-    for(var i = 0; i < coins.length; i++){
-      coins[i].price = res[i].data.data.price;
-    }
-    console.log(res);
-  }));
+  // for(var i = 0; i < coins.length; i++){
+  //   let url = 'https://v2.ethereumprice.org:8080/snapshot/'+ coins[i].acr.toLowerCase() +'/usd/waex/24h';
+  //   promiseArray.push(url);
+  // }
+
+  // axios.all(promiseArray.map(l => axios.get(l)))
+  // .then(axios.spread(function (...res) {
+  //   for(var i = 0; i < coins.length; i++){
+  //     coins[i].price = res[i].data.data.price;
+  //   }
+  //   console.log(res);
+  // }));
+
+  // for now we send back the coins from stub.
+  // coinsEnriched should happen here.
 
   return {
     type: FETCH_COINS,
@@ -72,7 +79,7 @@ export function addCoin(coin) {
   coins.push(coinTransformed);
 
   return {
-    type: 'ADD_COIN',
+    type: ADD_COIN,
     payload: coins
   }
 }

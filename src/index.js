@@ -1,14 +1,10 @@
-// Entry Point to Application
-// The responsibilty of the index.js is to initialise the application and redux store.
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
 import registerServiceWorker from './registerServiceWorker';
 
 import './index.css';
-import App from './app/app';
-
+import AppRouter from './routers/appRouter/appRouter';
 import { Provider } from 'react-redux';
 import ReduxPromise from 'redux-promise';
 import reducers from './reducers';
@@ -17,7 +13,7 @@ const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
-    <App />
+    <AppRouter />
   </Provider>,
   document.getElementById('root')
 );

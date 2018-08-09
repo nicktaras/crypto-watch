@@ -1,25 +1,20 @@
 import React, { Component } from 'react';
 import { Route, Link } from "react-router-dom";
 import './edit.css';
-
-import { connect } from 'react-redux'; // glue between redux and react
+import supportedCoins from './../../mocks/supportedCoins';
+import { connect } from 'react-redux'; 
 import { editCoin } from './../../actions/index';
 import { bindActionCreators } from 'redux';
-
-import supportedCoins from './../../stubs/supported_coins';
-
-// TODO's
-// - The form has a bug where the page refreshes when actions are dispatched, even when e.preventDefault is applied.
 
 class Edit extends Component {
   constructor(props){
     super(props);
     this.state = {
-      coin: {
-        id: this.props.location.state.coinData.id,
-        invested: this.props.location.state.coinData.invested[0],
-        amountRecieved: this.props.location.state.coinData.amountRecieved[0]
-      },
+      // coin: {
+      //   id: this.props.location.state.coinData.id,
+      //   invested: this.props.location.state.coinData.invested[0],
+      //   amountRecieved: this.props.location.state.coinData.amountRecieved[0]
+      // },
     };
     this.disabled = true;
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -76,16 +71,6 @@ class Edit extends Component {
     );
   }
 }
-
-//
-// <p>Please Select the Currency type</p>
-// <select value={this.state.coin.id || 0} onChange={this.handleInputChange} data-key="id">
-//   {this.supportedCoins.map(supportedCoin =>
-//     <option value={supportedCoin.id} key={supportedCoin.id}>
-//       {supportedCoin.label}
-//     </option>
-//   )}
-// </select>
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({editCoin: editCoin}, dispatch);

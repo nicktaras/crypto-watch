@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import Header from './../../components/header/header.js';
 import { Route, Link } from "react-router-dom";
+import supportedCoins from './../../mocks/supportedCoins';
 
 import './home.css';
-import './../../app/app.css';
-
-import supportedCoins from './../../stubs/supported_coins';
 
 class Home extends Component {
   constructor(){
@@ -19,7 +17,7 @@ class Home extends Component {
           <div className="home-intro">
             <p>This is an experimental application created to provide the status and statistics of your crypto currencies.</p>
           </div>
-          <Link className="home-link" to="/currencies/main">Get Started</Link>
+          <Link className="home-link" to="/dashboard/main">Get Started</Link>
           <div className="home-coins">
             {supportedCoins.map(supportedCoin =>
               <div className="home-coin" key={supportedCoin.id}>

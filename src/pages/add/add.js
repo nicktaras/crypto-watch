@@ -1,24 +1,14 @@
 import React, { Component } from 'react';
-import { Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import './add.css';
-
-import { connect } from 'react-redux'; // glue between redux and react
+import { connect } from 'react-redux';
 import { addCoin } from './../../actions/index';
 import { bindActionCreators } from 'redux';
-
-// TODO's
-// - The form has a bug where the page refreshes when actions are dispatched, even when e.preventDefault is applied.
+import supportedCoins from './../../mocks/supportedCoins';
 
 class Add extends Component {
   constructor(){
     super();
-    // Move to reducer object to load from Redux.
-    this.supportedCoins = [
-      { id: 0, acr: 'BTC', icon: 'cf-btc', name: 'Bitcoin', label: 'Bitcoin (BTC)' },
-      { id: 1, acr: 'ETH', icon: 'cf-eth', name: 'Etherium', label: 'Etherium (ETH)' },
-      { id: 2, acr: 'LTC', icon: 'cf-ltc', name: 'Litecoin', label: 'Litecoin (LTC)' },
-      { id: 3, acr: 'XRP', icon: 'cf-xrp', name: 'Ripple', label: 'Ripple (XRP)' }
-    ];
     this.state = {
       coin: {
         id: 0,
@@ -55,7 +45,7 @@ class Add extends Component {
             <p className="title">Add Crypto Currency:</p>
             <p>Please Select the Currency type</p>
             <select onChange={this.handleInputChange} data-key="id">
-              {this.supportedCoins.map(supportedCoin =>
+              {supportedCoins.map(supportedCoin =>
                 <option value={supportedCoin.id} key={supportedCoin.id}>
                   {supportedCoin.label}
                 </option>
