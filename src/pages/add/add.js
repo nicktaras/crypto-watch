@@ -11,9 +11,9 @@ class Add extends Component {
     super();
     this.state = {
       coin: {
-        id: 0,
-        invested: [],
-        amountRecieved: []
+        invested: '',
+        recieved: '',
+        puchaseHistory: []
       }
     };
     this.disabled = true;
@@ -21,37 +21,41 @@ class Add extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
   }
   validate = function(){
-    return !(this.state.coin.id != undefined && this.state.coin.invested[0] && this.state.coin.amountRecieved[0]);
+    return !(this.state.coin.type != undefined && this.state.coin.invested && this.state.coin.recieved);
   };
   handleInputChange(evt){
-    const _coin = this.state.coin;
-    _coin[evt.currentTarget.dataset.key] = evt.currentTarget.value;
-    this.setState({_coin});
+    const coin = this.state.coin;
+    coin[evt.currentTarget.dataset.key] = evt.currentTarget.value;
+    this.setState({ coin });
     this.disabled = this.validate();
   }
-  handleSubmit(event){
-    mapDispatchToProps(addCoin(this.state.coin));
+  handleSubmit(){
+    this.props.addCoin(this.state.coin);
   }
   render() {
     return (
       <div className="add-cryptocurrency">
 
-        <div className="App-nav">
-          <Link className="add-link" to="/currencies/Main">Back</Link>
-        </div>
+        <Link className="add-link" to="/dashboard/Main">Back</Link>
 
         <div className="add">
+
           <form>
+
             <p className="title">Add Crypto Currency:</p>
+            
             <p>Please Select the Currency type</p>
-            <select onChange={this.handleInputChange} data-key="id">
+            
+            <select onChange={this.handleInputChange} data-key="type">
               {supportedCoins.map(supportedCoin =>
-                <option value={supportedCoin.id} key={supportedCoin.id}>
+                <option value={supportedCoin.value} key={supportedCoin.id}>
                   {supportedCoin.label}
                 </option>
               )}
             </select>
+
             <p>Amount invested (USD)</p>
+
             <input
               name="invested"
               type="number"
@@ -59,16 +63,21 @@ class Add extends Component {
               data-key="invested"
               value={this.state.coin.invested}
             />
+
             <p>Coins recieved</p>
+
             <input
-              name="amountRecieved"
+              name="recieved"
               type="number"
               onChange={this.handleInputChange}
-              data-key="amountRecieved"
-              value={this.state.coin.amountRecieved}
+              data-key="recieved"
+              value={this.state.coin.recieved}
             />
+
           </form>
+
           <button onClick={this.handleSubmit} className="App-button" disabled={this.disabled}>Add</button>
+          
         </div>
       </div>
     );
@@ -76,7 +85,9 @@ class Add extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({addCoin: addCoin}, dispatch);
+  return bindActionCreators({
+      addCoin
+    }, dispatch);
 }
 
 export default connect(mapDispatchToProps)(Add);

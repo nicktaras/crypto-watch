@@ -24,7 +24,7 @@ class DashboardMain extends Component {
   }
   render() {
     if(!this.state.coins.length){
-      return <div>Loading...</div>;
+      return <Link className="main-link" to="/dashboard/Add">Add +</Link>;
     } 
     return (
       <div>

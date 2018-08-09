@@ -6,6 +6,7 @@ export default function (state = [], action) {
 
   switch (action.type) {
     case ADD_COIN:
+      debugger;
     case FETCH_COINS:
       return action.payload;
     case GET_COIN_PRICE:

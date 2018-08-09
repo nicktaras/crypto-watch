@@ -2,6 +2,7 @@ import axios from 'axios';
 import coins from '../mocks/userCoins';
 import supportedCoins from '../mocks/supportedCoins';
 import getInvestedAmount from './../helpers/getTotalInvestedValueHelper';
+import pricePerUnit from './../helpers/pricePerUnit';
 
 export const FETCH_COINS = 'FETCH_COINS';
 export const ADD_COIN = 'ADD_COIN';
@@ -58,32 +59,28 @@ export function fetchCoins() {
 
   return {
     type: FETCH_COINS,
-    payload: coins
+    payload: []
   }
 
+}
+
+export function editCoin(coin) {
+  // TODO.
 }
 
 export function addCoin(coin) {
 
-  let coinTransformed = {
-    id: coins.length,
-    name: supportedCoins[coin.id].name,
-    acr: supportedCoins[coin.id].acr,
-    invested: [coin.invested],
-    amountRecieved: [coin.amountRecieved],
-    coinsOwned: '',
-    statusAsPercentage: '',
-    totalUSD: ''
-  }
+  const newPuchaseHistory = { 
+    unitPriceUSD: pricePerUnit(coin.invested, coin.recieved),
+    purchase: coin.invested,
+    purchaseCurrency: 'USD', 
+    amountRecieved: coin.recieved
+  };
 
-  coins.push(coinTransformed);
-
+  coin.puchaseHistory.push(newPuchaseHistory);
+  
   return {
     type: ADD_COIN,
-    payload: coins
+    payload: coin
   }
-}
-
-export function editCoin(coin) {
-  alert('edit is under construction');
 }

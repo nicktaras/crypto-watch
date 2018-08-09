@@ -73,7 +73,9 @@ class Edit extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({editCoin: editCoin}, dispatch);
+  return bindActionCreators({
+    editCoin
+  }, dispatch);
 }
 
 export default connect(mapDispatchToProps)(Edit);
