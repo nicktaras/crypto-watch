@@ -69,16 +69,6 @@ export function editCoin(coin) {
 }
 
 export function addCoin(coin) {
-
-  const newPuchaseHistory = { 
-    unitPriceUSD: pricePerUnit(coin.invested, coin.recieved),
-    purchase: coin.invested,
-    purchaseCurrency: 'USD', 
-    amountRecieved: coin.recieved
-  };
-
-  coin.puchaseHistory.push(newPuchaseHistory);
-  
   return {
     type: ADD_COIN,
     payload: coin

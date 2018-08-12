@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { Route, Link } from "react-router-dom";
 import './coin.css';
+import { Link } from "react-router-dom";
+import React, { Component } from 'react';
 
 class Coin extends Component {
   render() {
@@ -20,8 +20,9 @@ class Coin extends Component {
         <p>Invested: { this.props.data.invested } USD</p>
         <p>Total: ${ this.props.data.currentValue.USD.value } USD</p>
       </div>
-    );
+    )
   }
 }
 
 export default Coin;
+
