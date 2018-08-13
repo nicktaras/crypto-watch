@@ -1,4 +1,4 @@
-import axios from 'axios';
+// import axios from 'axios';
 import coins from '../mocks/userCoins';
 import supportedCoins from '../mocks/supportedCoins';
 import getInvestedAmount from './../helpers/getTotalInvestedValueHelper';
@@ -7,6 +7,14 @@ import pricePerUnit from './../helpers/pricePerUnit';
 export const FETCH_COINS = 'FETCH_COINS';
 export const ADD_COIN = 'ADD_COIN';
 export const GET_COIN_PRICE = 'GET_COIN_PRICE';
+
+export function editCoin(coin) {}
+export function addCoin(coin) {
+  return {
+    type: ADD_COIN,
+    payload: coin
+  }
+}
 
 // function updateCoinPricing (coin) {
   // $.get("https://v2.ethereumprice.org:8080/snapshot/xrp/usd/waex/24h?_=1516101017976", function(data) {
@@ -64,13 +72,3 @@ export function fetchCoins() {
 
 }
 
-export function editCoin(coin) {
-  // TODO.
-}
-
-export function addCoin(coin) {
-  return {
-    type: ADD_COIN,
-    payload: coin
-  }
-}

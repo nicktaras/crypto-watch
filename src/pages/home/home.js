@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import Header from './../../components/header/header.js';
-import { Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import supportedCoins from './../../mocks/supportedCoins';
 
 import './home.css';
 
 class Home extends Component {
-  constructor(){
-    super();
-  }
   render() {
     return (
       <div>

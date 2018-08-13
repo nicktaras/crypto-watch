@@ -1,19 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, applyMiddleware } from 'redux';
 import registerServiceWorker from './registerServiceWorker';
-
-import './index.css';
 import AppRouter from './routers/appRouter/appRouter';
 import { Provider } from 'react-redux';
-import ReduxPromise from 'redux-promise';
-import reducers from './reducers';
+import createStore from './app/createStore';
+import createHistory from 'history/createHashHistory';
+import { ConnectedRouter } from 'react-router-redux';
+import { HashRouter } from 'react-router-dom';
+import './index.css';
 
-const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
+const history = createHistory();
+const store = createStore(history);
 
 ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
-    <AppRouter />
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <HashRouter>
+        <AppRouter />
+      </HashRouter>
+    </ConnectedRouter>
   </Provider>,
   document.getElementById('root')
 );

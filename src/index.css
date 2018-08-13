@@ -28,10 +28,6 @@ body {
   transition: 0.3s;
 }
 
-.App-nav {
-  background: #e6d8c9;
-}
-
 .App-button {
   color: white;
   background: #7f86b2;

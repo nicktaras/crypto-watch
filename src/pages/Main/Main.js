@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Route, Link } from "react-router-dom";
 import { bindActionCreators } from 'redux';
 import { fetchCoins } from '../../actions';
 import Coin from '../../components/coin/coin.js';
-import './dashboardMain.css';
+import AppNav from './../../containers/AppNav/AppNav';
+import './main.css';
 
-class DashboardMain extends Component {
+class Main extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -23,14 +23,11 @@ class DashboardMain extends Component {
     }
   }
   render() {
-    if(!this.state.coins.length){
-      return <Link className="main-link" to="/dashboard/Add">Add +</Link>;
-    } 
+    let navElement = <AppNav links={[{ url: "/dashboard/Add", title: "Add +" }]} />;
+    if(!this.props.coins) return navElement;
     return (
       <div>
-        <div className="App-nav">
-          <Link className="main-link" to="/dashboard/Add">Add +</Link>
-        </div>
+        { navElement }
         <div className="main-container">
           {this.state.coins.map(function(coin, index){
             return <Coin key={ index } data={ coin } />
@@ -53,4 +50,4 @@ function mapDispatchToProps(dispatch) {
   }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DashboardMain);
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

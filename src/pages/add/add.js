@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
-import './add.css';
 import { connect } from 'react-redux';
 import { addCoin } from './../../actions/index';
 import { bindActionCreators } from 'redux';
 import supportedCoins from './../../mocks/supportedCoins';
+import AppNav from './../../containers/AppNav/AppNav';
+import './add.css';
 
 class Add extends Component {
   constructor(){
     super();
     this.state = {
       coin: {
+        type: 'BTC',
         invested: '',
-        recieved: '',
-        puchaseHistory: []
+        recieved: ''
       }
     };
     this.disabled = true;
@@ -33,19 +33,14 @@ class Add extends Component {
     this.props.addCoin(this.state.coin);
   }
   render() {
+    let navElement = <AppNav links={[{ url: "/dashboard/Main", title: "Back" }]} />;
     return (
       <div className="add-cryptocurrency">
-
-        <Link className="add-link" to="/dashboard/Main">Back</Link>
-
+        { navElement }
         <div className="add">
-
           <form>
-
             <p className="title">Add Crypto Currency:</p>
-            
             <p>Please Select the Currency type</p>
-            
             <select onChange={this.handleInputChange} data-key="type">
               {supportedCoins.map(supportedCoin =>
                 <option value={supportedCoin.value} key={supportedCoin.id}>
@@ -53,9 +48,7 @@ class Add extends Component {
                 </option>
               )}
             </select>
-
             <p>Amount invested (USD)</p>
-
             <input
               name="invested"
               type="number"
@@ -63,9 +56,7 @@ class Add extends Component {
               data-key="invested"
               value={this.state.coin.invested}
             />
-
             <p>Coins recieved</p>
-
             <input
               name="recieved"
               type="number"
@@ -73,11 +64,8 @@ class Add extends Component {
               data-key="recieved"
               value={this.state.coin.recieved}
             />
-
           </form>
-
           <button onClick={this.handleSubmit} className="App-button" disabled={this.disabled}>Add</button>
-          
         </div>
       </div>
     );
