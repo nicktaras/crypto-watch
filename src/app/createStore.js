@@ -1,26 +1,36 @@
 import {
-    createStore as _createStore,
-    combineReducers,
-    applyMiddleware
-  } from 'redux';
+  createStore as _createStore,
+  combineReducers,
+  applyMiddleware
+} from 'redux';
   
-  import { composeWithDevTools } from 'redux-devtools-extension';
-  // import { combineEpics, createEpicMiddleware } from 'redux-observable';
-  
-  // Stores
-  import CoinStore from './coins/coinReducers';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import { combineEpics, createEpicMiddleware } from 'redux-observable';
 
-  // Epics TBC
-  
-  const rootReducer = combineReducers({
-    CoinStore
-  });
-    
-  const defaultState = {};
-  
-  const createStore = (history) => {
-    // return _createStore(rootReducer, defaultState, composeWithDevTools(applyMiddleware(epicMiddleware)));
-    return _createStore(rootReducer, defaultState, composeWithDevTools());
-  }
-  
-  export default createStore;
+// Stores
+import CoinStore from './coins/coinReducers';
+
+// Epics TBC
+import getCoinsEpic from './coins/getCoinsEpic';
+
+const rootReducer = combineReducers({
+  CoinStore
+});
+
+const epics = []
+.concat(getCoinsEpic);
+
+const rootEpic = combineEpics(
+  ...epics
+);
+
+const epicMiddleware = createEpicMiddleware();    
+const defaultState = {};
+
+const createStore = (history) => {
+  let store = _createStore(rootReducer, defaultState, composeWithDevTools(applyMiddleware(epicMiddleware)));
+  epicMiddleware.run(rootEpic);
+  return store;
+}
+
+export default createStore;

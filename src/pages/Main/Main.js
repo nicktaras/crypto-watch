@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchCoins } from '../../actions';
+import { getCoins } from '../../app/coins/coinActions';
 import Coin from '../../components/coin/coin.js';
 import AppNav from './../../containers/AppNav/AppNav';
 import './main.css';
@@ -14,7 +14,7 @@ class Main extends Component {
     }
   }
   componentDidMount() {
-    this.props.fetchCoins();
+    this.props.getCoins();
     this.setState({ coins: this.props.coins });
   }
   componentDidUpdate(prevProps) {
@@ -46,7 +46,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    fetchCoins: fetchCoins
+    getCoins: getCoins
   }, dispatch);
 }
 

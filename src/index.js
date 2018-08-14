@@ -8,6 +8,7 @@ import createHistory from 'history/createHashHistory';
 import { ConnectedRouter } from 'react-router-redux';
 import { HashRouter } from 'react-router-dom';
 import './index.css';
+import './app/rx';
 
 const history = createHistory();
 const store = createStore(history);

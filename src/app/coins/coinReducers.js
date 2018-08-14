@@ -1,4 +1,5 @@
 import * as ACTIONS from './coinTypes';
+import getCoinsEpic from './getCoinsEpic';
 
 let state = {
   coins: []
@@ -18,10 +19,11 @@ const coinReducers = (defaultState = state, action) => {
       return {
         ...defaultState
       };
-    case ACTIONS.GET_COINS:
+    case ACTIONS.GET_COINS_SUCCESS:
       return {
         ...defaultState
       };
+    case ACTIONS.GET_COINS:
     default:
       return defaultState;
   }
