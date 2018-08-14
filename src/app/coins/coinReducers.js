@@ -21,7 +21,8 @@ const coinReducers = (defaultState = state, action) => {
       };
     case ACTIONS.GET_COINS_SUCCESS:
       return {
-        ...defaultState
+        ...defaultState,
+        coins: action.payload
       };
     case ACTIONS.GET_COINS:
     default:

@@ -15,7 +15,6 @@ class Main extends Component {
   }
   componentDidMount() {
     this.props.getCoins();
-    this.setState({ coins: this.props.coins });
   }
   componentDidUpdate(prevProps) {
     if (prevProps.coins !== this.props.coins) {
@@ -24,7 +23,8 @@ class Main extends Component {
   }
   render() {
     let navElement = <AppNav links={[{ url: "/dashboard/Add", title: "Add +" }]} />;
-    if(!this.props.coins) return navElement;
+    if(this.state.coins.length === 0) return navElement;
+    debugger;
     return (
       <div>
         { navElement }
@@ -38,16 +38,16 @@ class Main extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    coins: state.coins
-  };
-}
-
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    getCoins: getCoins
+    getCoins
   }, dispatch);
+}
+
+function mapStateToProps(state) {
+  return {
+    coins: state.CoinStore.coins
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);

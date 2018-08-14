@@ -11,7 +11,8 @@ const getCoinsEpic = action$ => {
           axios.get('/mocks/userCoins.json')
         ])
         .then(function (results) {
-          obs.next(getCoinsSuccess(results));
+          const coins = results[0].data;
+          obs.next(getCoinsSuccess(coins));
         });
       });
     });
