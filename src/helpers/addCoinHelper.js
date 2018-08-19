@@ -1,13 +1,46 @@
-import pricePerUnit from './pricePerUnit';
-
-// Adds new coin to store and prepares the data provided.
+// Adds new coin to store and prepares the data provided
 const addCoinHelper = (coin) => {
-    const newPuchaseHistory = { 
-        unitPriceUSD: pricePerUnit(coin.invested, coin.recieved),
-        purchase: coin.invested,
-        purchaseCurrency: 'USD', 
-        amountRecieved: coin.recieved
-    };
-    coin.puchaseHistory.push(newPuchaseHistory);      
+
+  const mock = {
+    "id": 0,
+    "name": "Litecoin",
+    "acr": "LTC",
+    "invested": 250,
+    "coinTotal": 10.4,
+    "pl": 100,
+    "currentPrice": 100,
+    "puchaseHistory": [{
+        "unitPriceUSD": 100,
+        "purchase": 10,
+        "purchaseCurrency": "USD",
+        "amountRecieved": 0.1
+      },
+      {
+        "unitPriceUSD": 50,
+        "purchase": 10,
+        "purchaseCurrency": "USD",
+        "amountRecieved": 0.5
+      },
+      {
+        "unitPriceUSD": 100,
+        "purchase": 200,
+        "purchaseCurrency": "USD",
+        "amountRecieved": 2
+      }
+    ],
+    "currentValue": {
+      "USD": {
+        "currency": "USD",
+        "value": 250
+      },
+      "BTC": {
+        "currency": "BTC",
+        "value": 0.05
+      }
+    }
+  };
+
+  return mock;
+
 }
 export default addCoinHelper;

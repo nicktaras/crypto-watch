@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addCoin } from './../../actions/index';
+import { addCoin } from './../../app/coins/coinActions';
 import { bindActionCreators } from 'redux';
 import supportedCoins from './../../mocks/supportedCoins';
 import AppNav from './../../containers/AppNav/AppNav';
 import './add.css';
+
+// const state = startWith({ count: 0 })
+//   .select('button')
+//   .on('click')
+//   .map((state, e) => ({
+//     count: state.count + 1
+//   }))
 
 class Add extends Component {
   constructor(){
@@ -74,8 +81,14 @@ class Add extends Component {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-      addCoin
-    }, dispatch);
+    addCoin
+  }, dispatch);
 }
 
-export default connect(mapDispatchToProps)(Add);
+function mapStateToProps(state) {
+  return {
+    coins: state.CoinStore.coins
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Add);

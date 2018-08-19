@@ -16,20 +16,14 @@ class Main extends Component {
   componentDidMount() {
     this.props.getCoins();
   }
-  componentDidUpdate(prevProps) {
-    if (prevProps.coins !== this.props.coins) {
-      this.setState({ coins: this.props.coins });
-    }
-  }
   render() {
     let navElement = <AppNav links={[{ url: "/dashboard/Add", title: "Add +" }]} />;
-    if(this.state.coins.length === 0) return navElement;
-    debugger;
+    if(this.props.coins.length === 0) return navElement;
     return (
       <div>
         { navElement }
         <div className="main-container">
-          {this.state.coins.map(function(coin, index){
+          {this.props.coins.map(function(coin, index){
             return <Coin key={ index } data={ coin } />
           })}
         </div>

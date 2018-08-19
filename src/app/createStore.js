@@ -12,13 +12,17 @@ import CoinStore from './coins/coinReducers';
 
 // Epics TBC
 import getCoinsEpic from './coins/getCoinsEpic';
+import addCoinEpic from './coins/addCoinEpic';
 
 const rootReducer = combineReducers({
   CoinStore
 });
 
 const epics = []
-.concat(getCoinsEpic);
+.concat(
+  getCoinsEpic, 
+  addCoinEpic
+);
 
 const rootEpic = combineEpics(
   ...epics

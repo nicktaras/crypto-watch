@@ -3,7 +3,7 @@ import { Route, Link } from "react-router-dom";
 import './edit.css';
 import supportedCoins from './../../mocks/supportedCoins';
 import { connect } from 'react-redux'; 
-import { editCoin } from './../../actions/index';
+import { editCoin } from './../../app/coins/coinActions';
 import { bindActionCreators } from 'redux';
 
 class Edit extends Component {

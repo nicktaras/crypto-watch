@@ -13,6 +13,9 @@ import './app/rx';
 const history = createHistory();
 const store = createStore(history);
 
+// local storage dev. Clear db
+// localStorage.removeItem('cryptoWatchDbCoins');
+
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
