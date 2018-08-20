@@ -10,11 +10,13 @@ import { HashRouter } from 'react-router-dom';
 import './index.css';
 import './app/rx';
 
+// DEV Clear Mock Storage
+// import { clear as ClearMockStorage } from './mocks/mockLocalStorage';
+// local storage dev. Clear db
+// ClearMockStorage(); (optional for dev)
+
 const history = createHistory();
 const store = createStore(history);
-
-// local storage dev. Clear db
-// localStorage.removeItem('cryptoWatchDbCoins');
 
 ReactDOM.render(
   <Provider store={store}>

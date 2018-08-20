@@ -6,13 +6,6 @@ import supportedCoins from './../../mocks/supportedCoins';
 import AppNav from './../../containers/AppNav/AppNav';
 import './add.css';
 
-// const state = startWith({ count: 0 })
-//   .select('button')
-//   .on('click')
-//   .map((state, e) => ({
-//     count: state.count + 1
-//   }))
-
 class Add extends Component {
   constructor(){
     super();
@@ -28,7 +21,7 @@ class Add extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
   }
   validate = function(){
-    return !(this.state.coin.type != undefined && this.state.coin.invested && this.state.coin.recieved);
+    return !(this.state.coin.type !== undefined && this.state.coin.invested && this.state.coin.recieved);
   };
   handleInputChange(evt){
     const coin = this.state.coin;

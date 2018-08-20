@@ -1,6 +1,6 @@
 import * as ACTIONS from './coinTypes';
 
-let state = {
+const state = {
   coins: []
 };
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import './edit.css';
 import supportedCoins from './../../mocks/supportedCoins';
 import { connect } from 'react-redux'; 
@@ -22,7 +22,7 @@ class Edit extends Component {
     this.disabled = this.validate();
   }
   validate = function(){
-    return !(this.state.coin.id != undefined && this.state.coin.invested && this.state.coin.amountRecieved);
+    return !(this.state.coin.id !== undefined && this.state.coin.invested && this.state.coin.amountRecieved);
   };
   handleInputChange(evt){
     debugger

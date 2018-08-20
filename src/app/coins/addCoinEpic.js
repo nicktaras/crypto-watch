@@ -3,9 +3,15 @@ import axios from 'axios';
 import * as ACTIONS from './coinTypes';
 import addCoinHelper from './../../helpers/addCoinHelper';
 import { updateCoinsSuccess } from './coinActions';
+import createStore from './../../app/createStore';
+
+// Dev use only
+import { 
+  get as getMockStorage,
+  set as setMockStorage  
+} from './../../mocks/mockLocalStorage';
 
 const addCoinEpic = (action$, store) => {
-  debugger;
   return action$.ofType(ACTIONS.ADD_COIN)
   .switchMap(function (action) {
     return new Observable(obs => {
@@ -17,22 +23,18 @@ const addCoinEpic = (action$, store) => {
         // const state = store.getState(); // Get this working!
 
         // Mock with localstorage.
-        // for now, get the stored coins from local storage.
-        let coins = localStorage.getItem('cryptoWatchDbCoins');
+        let coins = getMockStorage();
 
-        if(coins) {
-          coins = JSON.parse(coins);
-        } else {
+        if(!coins) {
           coins = [];
-        }
+        } 
         
         let { coin } = action.payload;
         let coinTransformed = addCoinHelper(coin);
         let updatedCoins = coins.concat([coinTransformed]);
 
         // store in local storage
-        let dataToJSON = JSON.stringify(updatedCoins);
-        localStorage.setItem('cryptoWatchDbCoins', dataToJSON);
+        setMockStorage(updatedCoins);
 
         // merge return.
         obs.next(updateCoinsSuccess(updatedCoins));
