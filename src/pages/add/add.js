@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addCoin } from './../../app/coins/coinActions';
 import { bindActionCreators } from 'redux';
-import supportedCoins from './../../mocks/supportedCoins';
+import addCoinOptionsHelper from './../../helpers/addCoinOptionsHelper';
 import AppNav from './../../containers/AppNav/AppNav';
 import './add.css';
 
@@ -32,7 +32,11 @@ class Add extends Component {
   handleSubmit(){
     this.props.addCoin(this.state.coin);
   }
+  componentDidMount() {
+    
+  }
   render() {
+    let availableCoinsList = addCoinOptionsHelper(this.props.coins);
     let navElement = <AppNav links={[{ url: "/dashboard/Main", title: "Back" }]} />;
     return (
       <div className="add-cryptocurrency">
@@ -42,9 +46,9 @@ class Add extends Component {
             <p className="title">Add Crypto Currency:</p>
             <p>Please Select the Currency type</p>
             <select onChange={this.handleInputChange} data-key="type">
-              {supportedCoins.map(supportedCoin =>
-                <option value={supportedCoin.value} key={supportedCoin.id}>
-                  {supportedCoin.label}
+              {availableCoinsList.map(availableCoin =>
+                <option value={availableCoin.value} key={availableCoin.id}>
+                  {availableCoin.label}
                 </option>
               )}
             </select>
