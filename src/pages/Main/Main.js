@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getCoins } from '../../app/coins/coinActions';
+import { getCoins } from '../../app/coins/coinActions'; // TODO move upto Router!
 import Coin from '../../components/coin/coin.js';
 import AppNav from './../../containers/AppNav/AppNav';
 import './main.css';

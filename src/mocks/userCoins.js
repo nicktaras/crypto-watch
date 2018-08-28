@@ -5,7 +5,10 @@ const userCoins = [
     acr: 'LTC',
     invested: 250,
     coinTotal: 10.4,
-    pl: 100,
+    pl: {
+      usd: 100,
+      perc: 100
+    },
     currentPrice: 100,
     puchaseHistory: [
       { unitPriceUSD: 100, purchase: 10, purchaseCurrency: 'USD', amountRecieved: 0.1 },
@@ -23,7 +26,10 @@ const userCoins = [
     acr: 'ETH',
     invested: 250,
     coinTotal: 10.4,
-    pl: 100,
+    pl: {
+      usd: 100,
+      perc: 100
+    }, 
     currentPrice: 100,
     puchaseHistory: [
       { unitPriceUSD: 100, purchase: 10, purchaseCurrency: 'USD', amountRecieved: 0.1 },

@@ -4,7 +4,12 @@ import { addCoin } from './../../app/coins/coinActions';
 import { bindActionCreators } from 'redux';
 import addCoinOptionsHelper from './../../helpers/addCoinOptionsHelper';
 import AppNav from './../../containers/AppNav/AppNav';
+// import { withRouter } from 'react-router-dom';
+import history from './../../history';
 import './add.css';
+// import { BrowserRouter as Router } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
+
 
 class Add extends Component {
   constructor(){
@@ -31,9 +36,7 @@ class Add extends Component {
   }
   handleSubmit(){
     this.props.addCoin(this.state.coin);
-  }
-  componentDidMount() {
-    
+    this.props.history.push("/dashboard/Main")
   }
   render() {
     let availableCoinsList = addCoinOptionsHelper(this.props.coins);
@@ -88,4 +91,5 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Add);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Add));
+// export default connect(mapStateToProps, mapDispatchToProps)(Add);

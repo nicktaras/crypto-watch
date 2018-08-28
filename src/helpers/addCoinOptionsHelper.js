@@ -2,9 +2,9 @@
 
 import supportedCoins from './../mocks/supportedCoins';
 
-// Needs to know about the whole coin store 
-// e.g. list of all coins, so they can't add ones they already have.
 const addCoinOptionsHelper = (coins) => {
+
+  if (coins.length === 0) return supportedCoins;
   
   // Build arr of the coins stored 
   /*
