@@ -12,9 +12,9 @@ import './index.css';
 import './app/rx';
 
 // DEV Clear Mock Storage
-// import { clear as ClearMockStorage } from './mocks/mockLocalStorage';
-// //local storage dev. Clear db
-// ClearMockStorage(); // (optional for dev)
+//local storage dev. Clear db
+import { clear as ClearMockStorage } from './mocks/mockLocalStorage';
+ClearMockStorage(); // (optional for dev)
 
 const store = createStore(history);
 

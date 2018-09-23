@@ -1,7 +1,7 @@
-import pricePerUnit from './pricePerUnit';
+import pricePerUnitHelper from './pricePerUnitHelper';
 
 // create purchase history object
-export const createPurchaseHistory = (coin) => {
+const puchaseHistoryHelper = (coin) => {
     
     /*
 
@@ -25,7 +25,7 @@ export const createPurchaseHistory = (coin) => {
     */
 
     const puchaseHistory = { 
-        unitPriceUSD: pricePerUnit(coin.invested, coin.recieved),
+        unitPriceUSD: pricePerUnitHelper(coin.invested, coin.recieved),
         purchase: coin.invested,
         purchaseCurrency: 'USD', 
         amountRecieved: coin.recieved
@@ -35,4 +35,4 @@ export const createPurchaseHistory = (coin) => {
     
 }
 
-export default addHelper;
+export default puchaseHistoryHelper;

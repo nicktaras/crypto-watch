@@ -16,3 +16,12 @@
 - run, npm install
 - run, npm start
 - go to port 3000, localhost:3000
+
+#### Dev Notes / Progress
+
+- When a user adds a specific coin type, we should open up an RX subscription to
+  the coins live exchange data.
+
+  - Short term development, we'll connect the data without a dynamic sub
+  - Long term development, we'll connect the data only once the coin data is    
+    relevant.

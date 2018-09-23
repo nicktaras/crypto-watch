@@ -9,19 +9,23 @@ import { combineEpics, createEpicMiddleware } from 'redux-observable';
 
 // Stores
 import CoinStore from './coins/coinReducers';
+import ExchangeStore from './exchange/exchangeReducers';
 
 // Epics TBC
 import getCoinsEpic from './coins/getCoinsEpic';
 import addCoinEpic from './coins/addCoinEpic';
+import getExchangeDataEpic from './exchange/getExchangeDataEpic';
 
 const rootReducer = combineReducers({
-  CoinStore
+  CoinStore,
+  ExchangeStore
 });
 
 const epics = []
 .concat(
   getCoinsEpic, 
-  addCoinEpic
+  addCoinEpic,
+  getExchangeDataEpic
 );
 
 const rootEpic = combineEpics(

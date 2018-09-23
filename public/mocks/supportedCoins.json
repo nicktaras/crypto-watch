@@ -4,7 +4,9 @@
   "icon": "cf-btc",
   "name": "Bitcoin",
   "label": "Bitcoin (BTC)",
-  "value": "BTC"
+  "exchanges": {
+    "ethereumprice": "https://v2.ethereumprice.org:8080/snapshot/btc/usd/waex/24h?_=1516101017976"
+  }
 },
 {
   "id": 1,
@@ -12,7 +14,9 @@
   "icon": "cf-eth",
   "name": "Etherium",
   "label": "Etherium (ETH)",
-  "value": "ETH"
+  "exchanges": {
+    "ethereumprice": "https://v2.ethereumprice.org:8080/snapshot/eth/usd/waex/24h?_=1516101017976"
+  }
 },
 {
   "id": 2,
@@ -20,7 +24,9 @@
   "icon": "cf-ltc",
   "name": "Litecoin",
   "label": "Litecoin (LTC)",
-  "value": "LTC"
+  "exchanges": {
+    "ethereumprice": "https://v2.ethereumprice.org:8080/snapshot/ltc/usd/waex/24h?_=1516101017976"
+  }
 },
 {
   "id": 3,
@@ -28,5 +34,7 @@
   "icon": "cf-xrp",
   "name": "Ripple",
   "label": "Ripple (XRP)",
-  "value": "XRP"
+  "exchanges": {
+    "ethereumprice": "https://v2.ethereumprice.org:8080/snapshot/xrp/usd/waex/24h?_=1516101017976"
+  }
 }]

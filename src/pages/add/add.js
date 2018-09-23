@@ -4,12 +4,12 @@ import { addCoin } from './../../app/coins/coinActions';
 import { bindActionCreators } from 'redux';
 import addCoinOptionsHelper from './../../helpers/addCoinOptionsHelper';
 import AppNav from './../../containers/AppNav/AppNav';
-// import { withRouter } from 'react-router-dom';
-import history from './../../history';
 import './add.css';
-// import { BrowserRouter as Router } from 'react-router-dom'
 import { withRouter } from 'react-router-dom';
 
+// import { withRouter } from 'react-router-dom';
+// import history from './../../history';
+// import { BrowserRouter as Router } from 'react-router-dom'
 
 class Add extends Component {
   constructor(){
@@ -92,4 +92,3 @@ function mapStateToProps(state) {
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Add));
-// export default connect(mapStateToProps, mapDispatchToProps)(Add);

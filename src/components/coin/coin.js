@@ -2,8 +2,11 @@ import './coin.css';
 import { Link } from "react-router-dom";
 import React, { Component } from 'react';
 
+// TODO use the exchange data to update the status
+
 class Coin extends Component {
   render() {
+    debugger; 
     return (
       <div className="CryptoCurrency">
         <p className="title">

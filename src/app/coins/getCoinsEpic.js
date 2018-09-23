@@ -11,14 +11,8 @@ const getCoinsEpic = action$ => {
           axios.get('/mocks/userCoins.json')
         ])
         .then(function (results) {
-
-          // TODO get coins from a database.
           
-          // Mock with data.
-          // const coins = results[0].data;
-          // obs.next(updateCoinsSuccess(coins));
-
-          // Mock with localstorage.
+          // Mocked with localstorage for now.
           // for now, get the stored coins from local storage.
           let coins = localStorage.getItem('cryptoWatchDbCoins');
 

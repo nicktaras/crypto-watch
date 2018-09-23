@@ -3,9 +3,7 @@ import axios from 'axios';
 import * as ACTIONS from './coinTypes';
 import addCoinHelper from './../../helpers/addCoinHelper';
 import { updateCoinsSuccess } from './coinActions';
-import createStore from './../../app/createStore';
 
-// Dev use only
 import { 
   get as getMockStorage,
   set as setMockStorage  
@@ -20,7 +18,10 @@ const addCoinEpic = (action$, store) => {
       ])
       .then(function (results) {
 
-        // const state = store.getState(); // Get this working!
+        // This will be helpful to get the state
+        // of the application at this point for the following reason:
+        // to update the current coin and merge back with coin store data
+        // const state = store.getState(); 
 
         // Mock with localstorage.
         let coins = getMockStorage();
@@ -30,14 +31,20 @@ const addCoinEpic = (action$, store) => {
         } 
         
         let { coin } = action.payload;
+
+        // Prepare coin for storage (transform object)
         let coinTransformed = addCoinHelper(coin);
+
+        // update db with new coin (push to db)
         let updatedCoins = coins.concat([coinTransformed]);
 
-        // store in local storage
+        // store in local storage (store locally)
         setMockStorage(updatedCoins);
 
-        // merge return.
-        obs.next(updateCoinsSuccess(updatedCoins));
+        // merge return
+        let coinsStoreEnriched = updateCoinsSuccess(updatedCoins);
+
+        obs.next(coinsStoreEnriched);
       });
     });
   });
